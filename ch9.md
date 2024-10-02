@@ -59,8 +59,46 @@ time="2024-10-01T16:34:01+09:00" level=warning msg="networks.app-net: external.n
  ✔ Container exercises-image-gallery-1  Started                                                                                                                                       2.2s 
 
 PS D:\cmj\workspaces\docker\080258\ch09\exercises> for ($i=1; $i -le 10; $i++) { iwr -useb http://localhost:8010 | Out-Null }
-
-
 ```
+## 9.6 연습문제 225
+```
+PS D:\cmj\workspaces\docker> docker container run -d -p 8050:80 diamol/ch09-todo-list
+Unable to find image 'diamol/ch09-todo-list:latest' locally
+latest: Pulling from diamol/ch09-todo-list
+641667054481: Download complete
+3bc5282286b7: Download complete
+e936bd534ffb: Download complete
+caf64655bcbb: Download complete
+d1927dbcbcab: Download complete
+e9d8a968b003: Download complete
+68ced04f60ab: Download complete
+Digest: sha256:401c93647463079bdc35e06d274d8c56758c18ebeb156c6ea3ff2cb5fc74ce9f
+Status: Downloaded newer image for diamol/ch09-todo-list:latest
+19e9a7c40ca68eddd0abe38da277786040be3ef52628df1c4b395e37c56948e2
+```
+http://localhost:8050
 
+http://localhost:8050/metrics
 
+cd 080258\ch09\lab
+container rm
+
+`docker-compose up -d`
+```
+PS D:\cmj\workspaces\docker\080258\ch09\lab> docker-compose up -d
+time="2024-10-02T09:34:35+09:00" level=warning msg="D:\\cmj\\workspaces\\docker\\080258\\ch09\\lab\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid 
+potential confusion"
+time="2024-10-02T09:34:35+09:00" level=warning msg="networks.app-net: external.name is deprecated. Please set name and external: true"
+[+] Running 4/4
+ ✔ prometheus Pulled                                                                                                                                                                                  4.4s 
+   ✔ e8bb6249c6de Download complete                                                                                                                                                                   0.9s 
+ ✔ grafana Pulled                                                                                                                                                                                     5.2s 
+   ✔ bd8566134b91 Download complete                                                                                                                                                                   0.4s 
+[+] Running 3/3
+ ✔ Container lab-prometheus-1  Started                                                                                                                                                                1.4s 
+ ✔ Container lab-todo-list-1   Started                                                                                                                                                                1.3s 
+ ✔ Container lab-grafana-1     Started
+```
+https://github.com/gilbutITbook/080258/tree/main/ch09/lab
+http://localhost:8050
+http://localhost:3000
